@@ -1,0 +1,60 @@
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">ユーザー新規登録</h2>
+
+        <%# 「モデル名」にはUserモデルであれば@userを渡しましょう。%>
+        <%# 「新規登録機能へのパス」は、devise導入後にrails routesを実行してdevise/registrations#createへのパスを確認し、記載してください。 %>
+        <%= form_with model: @user, url: user_registration_path,method: :post, local: true do |f| %>
+
+
+        <div class="field">
+          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%# label :hoge, email_field :hogeをlabel :email,email_field :emailに変更 %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "パスワード（6文字以上）" %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+          <%# label :hoge, email_field :hogeをlabel :password,email_field :passwordに変更 %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, "パスワード再入力" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+          <%# label :hoge, email_field :hogeをlabel :password_confirmation,email_field :password_confirmationに変更 %>
+        </div>
+
+
+        <div class="field">
+          <%= f.label :name, "ユーザー名" %><br />
+          <%= f.text_field :name %>
+          <%# label :hoge, email_field :hogeをlabel :name,email_field :nameに変更 %>
+        </div>
+
+        <div class="field">
+          <%= f.label :profile, "プロフィール" %><br />
+          <%= f.text_area :profile, class: :form__text %>
+          <%# label :hoge, email_field :hogeをlabel :profile,email_field :profileに変更 %>
+        </div>
+
+        <div class="field">
+          <%= f.label :occupation, "所属" %><br />
+          <%= f.text_area :occupation, class: :form__text %>
+          <%# label :hoge, email_field :hogeをlabel :occupation,email_field :occupationに変更 %>
+        </div>
+
+        <div class="field">
+          <%= f.label :position, "役職" %><br />
+          <%= f.text_area :position, class: :form__text %>
+          <%# label :hoge, email_field :hogeをlabel :position,email_field :positionに変更 %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "新規登録", class: :form__btn  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
